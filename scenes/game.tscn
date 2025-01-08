@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dko2id1oxoxmv"]
+[gd_scene load_steps=18 format=3 uid="uid://dko2id1oxoxmv"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_a3gsk"]
 [ext_resource type="PackedScene" uid="uid://bieth4hdn4h3r" path="res://scenes/player.tscn" id="1_d4ji6"]
 [ext_resource type="Texture2D" uid="uid://da6p0yll37fpe" path="res://assets/sprites/world_tileset.png" id="2_kj7ji"]
 [ext_resource type="PackedScene" uid="uid://boahkk18dlia7" path="res://scenes/platform.tscn" id="3_3tbov"]
@@ -251,6 +252,22 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_a3gsk")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 696.0
+offset_top = -259.0
+offset_right = 841.0
+offset_bottom = -240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_eksvc")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j6c3m")
 format = 2
@@ -353,15 +370,17 @@ theme_override_font_sizes/font_size = 8
 text = "Collecting many many
 coins, are you?"
 
-[node name="Label5" type="Label" parent="Texts"]
-offset_left = 680.0
-offset_top = -261.0
-offset_right = 860.0
-offset_bottom = -242.0
+[node name="Label6" type="Label" parent="Texts"]
+offset_left = 697.0
+offset_top = -277.0
+offset_right = 842.0
+offset_bottom = -258.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_eksvc")
 theme_override_font_sizes/font_size = 8
-text = "Expecting an easter egg hun?"
+text = "Nice!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Texts"]
 offset_left = 350.0
