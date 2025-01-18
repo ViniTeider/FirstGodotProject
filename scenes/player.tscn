@@ -239,7 +239,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"roll",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -306,9 +306,16 @@ script = ExtResource("1_olse4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_a02eq")
-animation = &"death"
+animation = &"roll"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_xhrsr")
+
+[node name="Roll_timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="Roll_timer" to="." method="_on_timer_timeout"]
