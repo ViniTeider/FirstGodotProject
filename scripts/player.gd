@@ -3,20 +3,20 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var roll_timer: Timer = $Roll_timer
 
-
 enum states {
 	MOVE,
 	ROLL
 }
 
-
 const SPEED = 130.0
-const ROLL_SPEED = 200
+const ROLL_SPEED = 250
 const JUMP_VELOCITY = -300.0
 
-var current_state = states.MOVE
+@export var current_state = states.MOVE
 var jump_number = 0
 
+func _ready() -> void:
+	Global.player = self
 
 func _input(event: InputEvent) -> void:
 	# Checks if the player state is MOVE, in order to be able to roll

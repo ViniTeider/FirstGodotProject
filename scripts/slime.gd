@@ -1,4 +1,5 @@
 extends Node2D
+class_name Slime
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
