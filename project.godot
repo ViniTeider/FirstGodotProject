@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Music="*res://scenes/music.tscn"
 Global="*res://scripts/global.gd"
 
+[global_group]
+
+Player="This is the group related to the main player"
+
 [input]
 
 jump={
