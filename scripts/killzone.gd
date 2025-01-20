@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
+@onready var die_sound: AudioStreamPlayer2D = $"../DieSound"
 
 # When the player colides with this
 func _on_body_entered(body: Node2D) -> void:
@@ -8,6 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if get_parent() is Slime:
 		# Makes the camera shake
 		get_tree().call_group("Player","apply_shake")
+		play_hurt_sound(die_sound)
 		if (Global.player and Global.player.current_state == Global.player.states.ROLL):
 			get_parent().queue_free()
 		else: 
@@ -23,3 +25,10 @@ func kill_player(body: Node2D):
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
 	get_tree().reload_current_scene() # Restarts the scene
+
+
+func play_hurt_sound(audio_player: AudioStreamPlayer2D):
+	# The audio is not playing for some reason, not sure why :T
+	print("here")
+	if audio_player.playing == false:
+		audio_player.play()
